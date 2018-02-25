@@ -1,6 +1,6 @@
 <?php
 
-
+require 'inc/config.php';
 require 'inc/Slim-2.x/Slim/Slim.php';
 
 \Slim\Slim::registerAutoloader();
@@ -41,6 +41,29 @@ $app->get(
 
     }
 );
+$app->get(
+    '/ranking.php',
+    function () {
 
+        require_once("view/ranking.php");
+
+    }
+);
+
+$app->get('/ranking', function () {
+
+    $sql = new Sql();
+
+    $data = $sql->select("SELECT * FROM RANKING;");
+
+
+    foreach ($data as &$RANKING) {
+        $RANKING['ID_LOGIN'] = $ID_LOGIN;
+        $RANKING['PONTUACAO'] = $PONTUACAO;
+        $RANKING['posicao'] = $posicao;
+    };
+
+    echo json_encode($data);
+});
 
 $app->run();

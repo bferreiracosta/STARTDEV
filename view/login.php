@@ -1,31 +1,4 @@
-<?php include_once("header.php");
-
-$con = mysqli_connect('localhost', 'root', '') or die();	//Conecta com o MySQL
-mysqli_select_db($con, 'Hackaton');						//Seleciona banco de dados
-
-$login = (isset($_POST['login'])) ? $_POST['login'] : '';//Pegando dados passados por AJAX
-$senha = (isset($_POST['senha'])) ? $_POST['senha'] : '';
-
-  
-  //Consulta no banco de dados
-$sql = "select * from CADASTRO where USUARIO ='" . $login . "' and SENHA='" . sha1($senha) . "'";
-$resultados = mysqli_query($con, $sql) or die(mysqli_error());
-$res = mysqli_fetch_array($resultados); //
-if (@mysqli_num_rows($resultados) == 0) {
-    echo 0;	//Se a consulta não retornar nada é porque as credenciais estão erradas
-} else {
-    echo 1;	//Responde sucesso
-    if (!isset($_SESSION)) 	//verifica se há sessão aberta
-    session_start();		//Inicia seção
-		//Abrindo seções
-    $_SESSION['usuarioID'] = $res['id'];
-    $_SESSION['nomeUsuario'] = $res['nome'];
-    header("curso.php");
-   
-    exit;
-}
-?>
-
+<?php include_once("header.php");?>
    <section>
     <div>
                     <nav id="menu2" class="pull-left">
@@ -38,13 +11,20 @@ if (@mysqli_num_rows($resultados) == 0) {
                         </nav>
             </div> 
    <div id="all">
-            <h2 id="errolog">Usuário ou senha errados!</h2>
-            <form id="formlogin">
-                <input type="text" id="usuario" placeholder="Digite seu Usuario" required="" />
-                <input type="password" id="senha" placeholder="Senha" required="" />
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
+	<div id="login-box">
+		<div id="login-header">
+			Faça login no sistema
+		</div>
+		<div id="login-inputs">
+			<input type="text" placeholder="Nome de usuário" name=usuario>
+			<br />
+			<input type="password" placeholder="Senha" name=senha>
+		</div>
+		<div id="enviar">
+			<button onclick="Login()" class="botao" value=Login>Login</button>
+		</div>
+	</div>
+</div>
     </section> 
 <?php include_once("footer.php");?>
       
