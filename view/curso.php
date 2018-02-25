@@ -28,7 +28,10 @@
                                 </div>
                         </div>  
                     </nav>
-                </div> 
+				</div> 
+				<div>
+                <img id="img"src="../img/logotipo2.png">
+            </div>
                 <div>
                     <div id="pai">
                         <iframe id="iframeyoutube" width = '560' height = '250' frameborder = '0' allow = 'autoplay; encrypted-media' allowfullscreen > </iframe>

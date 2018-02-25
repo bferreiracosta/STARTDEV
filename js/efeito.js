@@ -31,6 +31,11 @@ function Login() {
     if (usuario == "admin" && senha == "admin") {
         window.location = "curso.php";
         done = 1;
+    } else if ((usuario == "USUARIO") && (senha == "SENHA")) {
+        header("Location: curso.php");
+
+    } else {
+        header("Location: index.php");
     }
     if (done == 0) { alert("Dados incorretos, tente novamente"); }
 }

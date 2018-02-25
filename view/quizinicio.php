@@ -27,6 +27,9 @@
                                 </div>
                         </div>  
                     </nav>
+                    <div>
+                <img id="img"src="../img/logotipo2.png">
+            </div>
                      <div>
                     <div id="pai">
                         <iframe id="iframequiz" width = '560' height = '250' frameborder = '0'> </iframe>
@@ -109,5 +112,6 @@
                 <input TYPE="button" NAME="valide" class="btn btn-danger" VALUE="Resultado" onclick="javascript:solution(this.form);"> 
                 </center></td></form></tr>
                 </table> 
-                </div>
+                
+                
 <?php include_once("footer.php");?>

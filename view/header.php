@@ -29,7 +29,8 @@
                                     <li><button type="button" class="btn btn-danger"><a href="index.php">Home</a></button></li> 
                                     <li><button type="button" class="btn btn-danger"><a href="curso.php">Curso</a></button></li> 
                                     <li><button type="button" class="btn btn-danger"><a href="quizinicio.php">quiz</a></button></li>
-                                    <li><button type="button" class="btn btn-danger"><a href="ranking.php" >Ranking</a></button></li>                                                          
+                                    <li><button type="button" class="btn btn-danger"><a href="ranking.php" >Ranking</a></button></li>
+                                    <li><button type="button" class="btn btn-danger" action="curso.php?logout"><a href="" >Sair</a></button></li>                                                          
                                 </ul>
                             </nav>
                     </div>

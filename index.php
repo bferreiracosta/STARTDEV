@@ -54,7 +54,8 @@ $app->get('/ranking', function () {
 
     $sql = new Sql();
 
-    $data = $sql->select("SELECT * FROM RANKING;");
+    $data = $sql->select("SELECT USUARIO, PONTUAÇÂO FROM RANKING R
+                           inner join CADASTRO C AS ID_LOGIN.R = ID_LOGIN.C ORDER BY asc top 3;");
 
 
     foreach ($data as &$RANKING) {
